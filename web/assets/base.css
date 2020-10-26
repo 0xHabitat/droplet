@@ -1,0 +1,207 @@
+@import '/config.css';
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  color: var(--color-text);
+  font-family: var(--font-family-default);
+  font-weight: 400;
+  font-size: 18px;
+  overflow: hidden;
+  text-align: center;
+  background-color: transparent;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: none;
+  tap-highlight-color: none;
+}
+
+footer, section, div, button, input, .button, textarea {
+  display: block;
+  margin: 1vw;
+  padding: 0;
+  outline: none;
+  white-space: pre-line;
+  border: none;
+  font-family: var(--font-family-default);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+}
+
+section {
+  margin: 1rem 0;
+}
+
+div {
+  display: block;
+  margin: 0;
+  animation: opacity 0.3s ease-out;
+}
+
+a, p {
+  line-height: 1.7;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-link);
+}
+
+span, label, pre {
+  line-height: 1;
+}
+
+p {
+  display: block;
+  font-weight: 400;
+  padding: 0 0.3em;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  min-height: 1rem;
+}
+
+h1, h2, h3 {
+  color: var( --color-text);
+  font-weight: 400;
+  display: block;
+  padding: 0 0.3em;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+p.sub, p.heading, h1 {
+  color: var( --color-text);
+  margin-bottom: 5px;
+}
+
+p.heading, h1, h2, h3 {
+  font-size: 2rem;
+  line-height: 1.7;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, div, .button {
+  border-color: var(--border-color);
+}
+
+input {
+  min-width: 30ch;
+  max-width: 70vw;
+  width: 48ch;
+  margin: .3rem;
+  padding: 1rem;
+  border: 1px solid;
+  background: none;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+.wrapperContent {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: auto;
+  max-width: 90vw;
+  margin: 1rem auto -2rem auto;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 2vw;
+  overflow: scroll !important;
+  background-color: var(--color-bg);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button, .button {
+  display: grid;
+  place-content: center;
+  min-width: 6em;
+  max-width: max-content;
+  margin: .3rem;
+  padding: .7em;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  vertical-align: bottom;
+  white-space: pre-wrap;
+  cursor: pointer;
+}
+
+button:disabled,
+.button:disabled {
+  box-shadow: none;
+  background: var(--color-disabled);
+  color: var(--color-text);
+}
+
+button#expanded,
+.button#expanded {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+div, button, .button {
+  transition: 0.3s ease-in;
+}
+
+.flow > button {
+  display: inline-grid;
+}
+
+.error {
+  color: var(--color-error);
+}
+
+flex {
+  display: flex;
+  flex-wrap: wrap;
+  place-content: space-between;
+}
+
+.center {
+  text-align: center;
+}
+
+input, button, .button {
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+}
+
+.danger {
+  color: var(--color-text);
+  background-color: var(--color-error);
+}

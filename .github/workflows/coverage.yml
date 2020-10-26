@@ -1,0 +1,28 @@
+name: Coverage
+
+on:
+  push:
+    branches:
+    - master
+    - release/*
+
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  coverage:
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    container: node:14-alpine
+    steps:
+    - name: Setup
+      run: apk add --no-cache git geth bash curl
+
+    - uses: actions/checkout@v2
+
+    - name: Install
+      run: yarn install
+
+    - name: Coverage
+      run: yarn coverage

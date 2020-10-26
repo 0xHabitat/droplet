@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name='referrer' content='no-referrer'>
+    <link rel='stylesheet' type='text/css' href='../assets/base.css'>
+    <link rel='stylesheet' type='text/css' href='index.css'>
+    <link rel='icon' type='image/png' href='../assets/logo.png'>
+    <link rel='apple-touch-icon' href='../assets/logo.png'>
+    <title>Dispenser - Overview</title>
+  </head>
+  <body>
+    <section class='wrapperContent'>
+      <div class='container'>
+        <div>
+          <h1>Dispenser</h1>
+          <section>
+            <flex>
+              <div>
+                <h3>Dispensing:</h3>
+                <h3 id='token'></h3>
+              </div>
+              <div>
+                <h3>Balance:</h3>
+                <h3 id='balance'>0</h3>
+              </div>
+            </flex>
+          </section>
+          <section>
+            <p>Contract (Transfer funds to this address to charge up):</p>
+            <p id='contract'></p>
+            <p>Payer:</p>
+            <p id='payer'></p>
+            <p>Contract start:</p>
+            <p id='startTime'></p>
+          </section>
+          <section>
+            <div class='grid'>
+              <p>Payee</p>
+              <p>Hourly rate</p>
+            </div>
+          </section>
+          <section>
+            <h3>Actions</h3>
+            <section id='feedback'></section>
+            <flex>
+              <button id='drip'>Drip funds to Payees</button>
+            </flex>
+          </section>
+          <section>
+            <h3>Danger Zone</h3>
+            <flex>
+              <button id='drain' class='danger class='danger''>Drain remaining funds to Payer</button>
+            </flex>
+          </section>
+        </div>
+      </div>
+    </section>
+    <script src='https://cdn.jsdelivr.net/gh/ethers-io/ethers.js@v4.0.41/dist/ethers.min.js'
+            integrity='sha384-IdAlK0noI+bswjSrSiA28qV6LA5h1D02N+O5o6WZXfAvn/lbm/MVNaEdaebOhtPL'
+            crossorigin='anonymous'></script>
+    <script type='module' src='./index.js'></script>
+  </body>
+</html>

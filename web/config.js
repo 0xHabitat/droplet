@@ -1,0 +1,2 @@
+export const ROOT_CHAIN_ID = 3;
+export const DISPENSER_ADDRESS = '0x0a7A320446ef435D5Cf48093eBee9582fda3C393';

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name='referrer' content='no-referrer'>
+    <link rel='stylesheet' type='text/css' href='assets/base.css'>
+    <link rel='stylesheet' type='text/css' href='index.css'>
+    <link rel='icon' type='image/png' href='assets/logo.png'>
+    <link rel='apple-touch-icon' href='assets/logo.png'>
+    <title>Dispenser - Modern Escrow</title>
+  </head>
+  <body>
+    <section class='wrapperContent'>
+      <div class='container'>
+        <div>
+          <h1>Dispenser</h1>
+          <form id='basic'>
+            <label>
+              <input required=true list='tokenlist' id='token' placeholder='Select Token'>
+            </label>
+
+            <label>
+              Payer. Refunds and leftover balances go back to this address.
+              <input required=true id='payer' placeholder='0x.. or alice.eth'>
+              <button id='payerAutofill'>Use address from my Wallet</button>
+            </label>
+
+            <label>
+              Contract start time
+              <input required=true id='startTime' placeholder='2020/06/22 14:32'>
+            </label>
+            <button id='datetime'>Use current local time</button>
+          </form>
+
+          <section>
+            <form id='payee'>
+              <label>
+                Add Payee
+                <input id='payee' placeholder='0x.. or alice.eth'>
+              </label>
+
+              <label>
+                Rate per hour
+                <input type='number' id='ratePerHour' placeholder='120'>
+              </label>
+              <button id='add'>Add Payee</button>
+            </form>
+          </section>
+
+          <section>
+            <div class='grid'>
+              <p>Payee</p>
+              <p>Hourly rate</p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Looks good?</h2>
+            <section id='feedback'></section>
+            <button id='deploy'>Create Contract</button>
+          </section>
+        </div>
+      </div>
+    </section>
+    <script src='https://cdn.jsdelivr.net/gh/ethers-io/ethers.js@v4.0.41/dist/ethers.min.js'
+            integrity='sha384-IdAlK0noI+bswjSrSiA28qV6LA5h1D02N+O5o6WZXfAvn/lbm/MVNaEdaebOhtPL'
+            crossorigin='anonymous'></script>
+    <script type='module' src='./index.js'></script>
+  </body>
+</html>

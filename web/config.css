@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion%20One:wght@400');
+
+:root {
+  --color-bg: #FAFDFFAC;
+  --color-error: #eb4d62;
+  --color-text: #404040;
+  --color-link: #635BFF;
+  --color-p1: #fff0f5;
+  --color-p2: #e6e6fa;
+  --font-family-default: 'Passion One';
+  --color-primary-bg: #9EFBCE;
+  --color-primary-fg: #69C699;
+  --color-border: #ECDDE2;
+  --color-disabled: #d5d5d5a6;
+}
+
+input::placeholder{
+  color: #909090;
+}
+
+@keyframes pulse {
+  from {
+    background-color: lavender;
+  }
+  to {
+    background-color: lavenderblush;
+  }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-2px, 0px) rotate(1deg); }
+  30% { transform: translate(2px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-2px, 1px) rotate(0deg); }
+  70% { transform: translate(2px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+body {
+  background: radial-gradient(#ffffffff, #ffffff00);
+  animation: pulse 2s infinite alternate;
+}
+
+.wrapperContent {
+  background-color: #ffffff30 !important;
+}
+
+button, .button {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary-fg);
+}
+
+button:hover,
+button:focus,
+button:active,
+.button:hover,
+.button:focus,
+.button:active {
+  animation: shake 1s infinite alternate;
+}
+
+#feedback {
+  max-width: 42ch;
+}
+
+#feedback > a {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(min-content, 42ch)) repeat(1, 12ch);
+  overflow: hidden;
+}
