@@ -15,7 +15,7 @@ GAS_GWEI=3 ROOT_RPC_URL=http://localhost:8222 PRIV_KEY=0x2bdd21761a483f71054e14f
 # Deployments
 ## mainnet
 ### Contract
-https://etherscan.io/address/0x87DDBdDF8544adB16295a45538d87f50013b9c87
+https://etherscan.io/address/0xEc2CEaF2b34D12f321aB5718B0714a12710D8bFa
 ### UI
-https://bafybeids3nimyrhq7x3hokzdupayzgzvyzmzp4bth2aywruw6mslegqajm.ipfs.infura-ipfs.io/
-https://bafybeids3nimyrhq7x3hokzdupayzgzvyzmzp4bth2aywruw6mslegqajm.cf-ipfs.com/
+https://bafybeiaqt2bh4ln2y4ls2n7g43epppqcdiwhonsc4pdgvv7yexguupns7q.ipfs.infura-ipfs.io/
+https://bafybeiaqt2bh4ln2y4ls2n7g43epppqcdiwhonsc4pdgvv7yexguupns7q.cf-ipfs.com/
