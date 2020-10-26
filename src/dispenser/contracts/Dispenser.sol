@@ -38,6 +38,8 @@ contract Dispenser {
     emit NewDispenser(addr);
   }
 
+  /// @notice Returns the metadata of this contract.
+  /// Only relevant with contracts created via the function `create()`.
   function getMetadata ()
   public view returns (
     address token,
@@ -197,14 +199,14 @@ contract Dispenser {
       // RETURNDATASIZE;
       // CALLDATACOPY; (0, 0, calldatasize())
 
-      // PUSH1 117; 128 - 11
-      // DUP1; 117,117
+      // PUSH1 55;
+      // DUP1; 55, 55
       // CODESIZE;
-      // SUB; size, 117
-      // DUP1; size,size,117
-      // SWAP2; 117, size, size
+      // SUB; size, 55
+      // DUP1; size ,size, 55
+      // SWAP2; 55, size, size
       // CALLDATASIZE;
-      // CODECOPY; (calldatasize(), 117, size)
+      // CODECOPY; (calldatasize(), 55, size)
 
       // CALLDATASIZE;
       // ADD; size+calldatasize
@@ -230,17 +232,19 @@ contract Dispenser {
       // RETURN; (0, returndatasize()) if delegatecall returned non-zero (1)
 
       // the bytecode from the above statements
-      mstore(139, 0x3d3d3d363d3d3760758038038091363936013d73000000000000000000000000)
+      mstore(139, 0x3d3d3d363d3d3760378038038091363936013d73000000000000000000000000)
       mstore(159, shl(96, address()))
+      // 15 bytes
       mstore(179, 0x5af43d82803e3d8282603557fd5bf30000000000000000000000000000000000)
 
       let size := sub(calldatasize(), 4)
-      calldatacopy(256, 4, size)
-      let ptr := add(256, size)
+      calldatacopy(194, 4, size)
+      let ptr := add(194, size)
       mstore(ptr, size)
-      ptr := add(ptr, 32)
 
-      addr := create(0, 128, sub(ptr, 128))
+      // The size is deploy code + contract code + calldatasize - 4 + 32.
+      // Subtract 96 instead of 128 because the `ptr` is not increased after the last `mstore`.
+      addr := create(0, 128, sub(ptr, 96))
     }
   }
 }
