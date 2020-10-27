@@ -1,9 +1,23 @@
+# About
+
+Dispenser is a modern escrow, smart contract on Ethereum.
+A dispenser has a payer, a ERC-20 token that gets dispensed and one or more payees with specific rates per hour of that ERC-20 token.
+Additionaly a contract start time must be defined, this defines the date the dispenser starts to drip. The start time can be in the future or past.
+
+Anyone can transfer funds to the dispenser at any time, Any accumulated hourly rates goes to the payees.
+The dispensing contract can be drained if the payer wants to abort the contract. A drain pays all remaining funds back to the payer minus the accumulated hourly rates for the payees.
+
+Any remaining dust also gets transfered to the payer.
+
+## Token recovery
+
+If a wrong ERC-20 token gets transferred to the dispenser, then this token can be recovered by an additional function (`recoverLostTokens`) that sends the funds to the first payee of the dispensing contract. After that, additional social recovery can/must be performed.
 
 # Development
 
 Run the tests with `yarn test`.
 You can run single/multiple tests only with `yarn _test path/to/file(s)`.
-The test require `geth` version `1.9.9` is recommended and you can grab it here: `https://geth.ethereum.org/downloads/`.
+The tests require `geth`, version `1.9.9` is recommended and you can grab it here: `https://geth.ethereum.org/downloads/`.
 
 
 # Deploy
