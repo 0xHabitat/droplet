@@ -30,9 +30,25 @@ GAS_GWEI=3 ROOT_RPC_URL=http://localhost:8222 PRIV_KEY=0x2bdd21761a483f71054e14f
 ```
 
 # Deployments
+
 ## mainnet
+
 ### Contract
+
 https://etherscan.io/address/0xEc2CEaF2b34D12f321aB5718B0714a12710D8bFa
+
 ### UI
+
 https://bafybeiaqt2bh4ln2y4ls2n7g43epppqcdiwhonsc4pdgvv7yexguupns7q.ipfs.infura-ipfs.io/
 https://bafybeiaqt2bh4ln2y4ls2n7g43epppqcdiwhonsc4pdgvv7yexguupns7q.cf-ipfs.com/
+
+## ropsten
+
+### Contract
+
+https://ropsten.etherscan.io/address/0x46DCdCC77fd62739e7810272D0dA67Bc63d5dc84
+
+### UI
+
+https://bafybeicescjmqchwthkb6ijp5cht7jrxtfrni4ffqrvmj2u6zq6u2haeza.ipfs.infura-ipfs.io/
+https://bafybeicescjmqchwthkb6ijp5cht7jrxtfrni4ffqrvmj2u6zq6u2haeza.cf-ipfs.com/
