@@ -10,7 +10,7 @@ Anyone can transfer funds to the dispenser at any time, Any accumulated hourly r
 
 The dispensing contract can be drained if the payer wants to abort the contract. A drain pays all remaining funds back to the payer minus the accumulated hourly rates for the payees.
 
-Any remaining dust also gets transfered to the payer.
+Any remaining dust also gets transferred to the payer.
 
 ## Token recovery
 
