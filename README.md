@@ -1,10 +1,13 @@
 # About
 
 Dispenser is a modern escrow, smart contract on Ethereum.
+
 A dispenser has a payer, a ERC-20 token that gets dispensed and one or more payees with specific rates per hour of that ERC-20 token.
+
 Additionaly a contract start time must be defined, this defines the date the dispenser starts to drip. The start time can be in the future or past.
 
 Anyone can transfer funds to the dispenser at any time, Any accumulated hourly rates goes to the payees.
+
 The dispensing contract can be drained if the payer wants to abort the contract. A drain pays all remaining funds back to the payer minus the accumulated hourly rates for the payees.
 
 Any remaining dust also gets transfered to the payer.
