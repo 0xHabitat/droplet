@@ -39,8 +39,8 @@ https://etherscan.io/address/0xeC41c0F035Ce9127c506fD726fC22F393b350fE4
 
 ### UI
 
-https://bafybeigtk4cw4ckaknksgkfntvzqlfojt7ba3ce67dszhdhzg3g2yhsz5y.ipfs.infura-ipfs.io/
-https://bafybeigtk4cw4ckaknksgkfntvzqlfojt7ba3ce67dszhdhzg3g2yhsz5y.ipfs.cf-ipfs.com/
+https://bafybeibk55sce6thtb222o7dqemsqrdoyaelndx5xawg7aojcoyvutkwkm.ipfs.infura-ipfs.io/
+https://bafybeibk55sce6thtb222o7dqemsqrdoyaelndx5xawg7aojcoyvutkwkm.ipfs.cf-ipfs.com/
 
 ## ropsten
 
@@ -50,5 +50,5 @@ https://ropsten.etherscan.io/address/0x55973C53DdE65A050BFBb15ADc6a9F19B7A888A6
 
 ### UI
 
-https://bafybeicb4tijmrvugqwrxnwsknr5k3s64s7juk6hixoczv7nexuya6nzgi.ipfs.infura-ipfs.io/
-https://bafybeicb4tijmrvugqwrxnwsknr5k3s64s7juk6hixoczv7nexuya6nzgi.ipfs.cf-ipfs.com/
+https://bafybeiatkzhpyx24b3mdgpgqrypx2wqxgyiac5ikxtg67qsyx5iyhemcei.ipfs.infura-ipfs.io/
+https://bafybeiatkzhpyx24b3mdgpgqrypx2wqxgyiac5ikxtg67qsyx5iyhemcei.ipfs.cf-ipfs.com/

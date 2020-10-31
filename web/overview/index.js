@@ -3,13 +3,23 @@ import { getSigner, getDispenser, getErc20, wrapListener, displayFeedback } from
 let metadata, erc20, dispenser;
 
 function formatDripRate (bigNum) {
-  const day = 24 * 3600;
-  const hours = bigNum.mod(day);
-  const days = bigNum.div(day);
-  const d = days.gt(1) ? ' days' : ' day';
-  const h = hours.gt(1) ? ' hours' : ' hour';
+  const a = [24 * 3600, 3600, 60, 1];
+  const b = ['day', 'hour', 'minute', 'second'];
+  let str = '';
 
-  return `${days.gt(0) ? days + d : ''} ${hours.gt(0) ? hours + h : ''}`;
+  for (let i = 0; i < a.length; i++) {
+    const n = a[i];
+    const name = b[i];
+    const val = bigNum.div(n);
+
+    bigNum = bigNum.mod(n);
+
+    if (val.gt(0)) {
+      str += `${val.toString()} ${name}${val.gt(1) ? 's' : ''} `;
+    }
+  }
+
+  return str;
 }
 
 async function drain (evt) {
