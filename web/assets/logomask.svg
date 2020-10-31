@@ -1,0 +1,13 @@
+<svg width="352" height="444" viewBox="0 0 352 444" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="foobar" d="M295 64.9185C295 80.1063 282.688 92.4185 267.5 92.4185C252.312 92.4185 240 80.1063 240 64.9185C240 49.7307 260.84 21.1979 265.996 0C270.006 20.0521 295 49.7307 295 64.9185Z" fill="white" fill-opacity="0.5">
+<animateTransform attributeName="transform" attributeType="XML" type="translateY" dur="2.1s" from="0 -100" to="0 300" repeatCount="indefinite"/>
+</path>
+<path d="M300 221.771C300 230.607 292.837 237.771 284 237.771C275.163 237.771 268 230.607 268 221.771C268 212.934 280.125 196.333 283.125 184C285.458 195.667 300 212.934 300 221.771Z" fill="white" fill-opacity="0.5">
+<animateTransform attributeName="transform" attributeType="XML" type="translateY" dur="1.9s" from="0 -200" to="0 120" repeatCount="indefinite"/>
+</path>
+<path d="M233 156.935C233 169.085 223.15 178.935 211 178.935C198.85 178.935 189 169.085 189 156.935C189 144.785 205.672 121.958 209.797 105C213.005 121.042 233 144.785 233 156.935Z" fill="white" fill-opacity="0.5">
+<animateTransform attributeName="transform" attributeType="XML" type="translateY" dur="1.5s" from="0 -150" to="0 100" repeatCount="indefinite"/>
+</path>
+<path d="M351.135 250.568C354.443 283.803 348.226 317.293 333.21 347.126C318.195 376.959 295.001 401.904 266.337 419.047C237.673 436.19 204.723 444.823 171.336 443.938C137.949 443.053 105.503 432.686 77.7878 414.049C50.0725 395.412 28.2325 369.273 14.8186 338.686C1.40476 308.099 -3.0291 274.327 2.03493 241.314C7.09897 208.302 21.4518 177.411 43.417 152.251C65.3822 127.092 94.0529 108.701 126.08 99.2279L176 268L351.135 250.568Z" fill="white" fill-opacity="0.8"/>
+<circle cx="80" cy="207" r="32" fill="#404040" fill-opacity="0.1"/>
+</svg>

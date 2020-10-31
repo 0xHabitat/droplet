@@ -39,8 +39,8 @@ https://etherscan.io/address/0xeC41c0F035Ce9127c506fD726fC22F393b350fE4
 
 ### UI
 
-https://bafybeibk55sce6thtb222o7dqemsqrdoyaelndx5xawg7aojcoyvutkwkm.ipfs.infura-ipfs.io/
-https://bafybeibk55sce6thtb222o7dqemsqrdoyaelndx5xawg7aojcoyvutkwkm.ipfs.cf-ipfs.com/
+https://bafybeicxxg4pla2rrapbjbpt2b4srincq5oygk7xx4h6iubd6wfpxukrpm.ipfs.infura-ipfs.io/
+https://bafybeicxxg4pla2rrapbjbpt2b4srincq5oygk7xx4h6iubd6wfpxukrpm.ipfs.cf-ipfs.com/
 
 ## ropsten
 

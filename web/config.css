@@ -43,7 +43,11 @@ input::placeholder{
 
 body {
   background: radial-gradient(#ffffffff, #ffffff00);
-  animation: pulse 2s infinite alternate;
+  animation: pulse 3s infinite alternate ease-in;
+  background-image: url('assets/logomask.svg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: 320px;
 }
 
 .wrapperContent {
