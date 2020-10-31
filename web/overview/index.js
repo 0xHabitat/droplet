@@ -2,6 +2,16 @@ import { getSigner, getDispenser, getErc20, wrapListener, displayFeedback } from
 
 let metadata, erc20, dispenser;
 
+function formatDripRate (bigNum) {
+  const day = 24 * 3600;
+  const hours = bigNum.mod(day);
+  const days = bigNum.div(day);
+  const d = days.gt(1) ? ' days' : ' day';
+  const h = hours.gt(1) ? ' hours' : ' hour';
+
+  return `${days.gt(0) ? days + d : ''} ${hours.gt(0) ? hours + h : ''}`;
+}
+
 async function drain (evt) {
   const signer = await getSigner();
   const tx = await dispenser.connect(signer).drain();
@@ -35,6 +45,7 @@ async function render () {
   document.querySelector('#startTime').textContent =
     (new Date(metadata.startTime.mul(1000).toNumber())).toLocaleString();
   document.querySelector('#token').textContent = symbol;
+  document.querySelector('#dripRate').textContent = formatDripRate(metadata.dripRateSeconds);
 
   document.querySelector('#balance').textContent =
     `${ethers.utils.formatUnits(balance, decimals)} ${symbol}`;
@@ -43,13 +54,13 @@ async function render () {
   const len = metadata.payees.length;
   for (let i = 0; i < len; i++) {
     const payee = metadata.payees[i];
-    const ratePerHour = ethers.utils.formatUnits(metadata.ratesPerHour[i], decimals);
+    const ratePerDrip = ethers.utils.formatUnits(metadata.ratesPerDrip[i], decimals);
 
     const a = document.createElement('p');
     const b = document.createElement('p');
 
     a.textContent = payee;
-    b.textContent = ratePerHour;
+    b.textContent = ratePerDrip;
     grid.appendChild(a);
     grid.appendChild(b);
   }

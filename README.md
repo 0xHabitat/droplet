@@ -2,13 +2,13 @@
 
 Dispenser is a modern escrow, smart contract on Ethereum.
 
-A dispenser has a payer, a ERC-20 token that gets dispensed and one or more payees with specific rates per hour of that ERC-20 token.
+A dispenser has a payer, a ERC-20 token that gets dispensed and one or more payees with specific rates per drip of that ERC-20 token.
 
 Additionaly a contract start time must be defined, this defines the date the dispenser starts to drip. The start time can be in the future or past.
 
-Anyone can transfer funds to the dispenser at any time, Any accumulated hourly rates goes to the payees.
+Anyone can transfer funds to the dispenser at any time and accumulated drip rates goes to the payees.
 
-The dispensing contract can be drained if the payer wants to abort the contract. A drain pays all remaining funds back to the payer minus the accumulated hourly rates for the payees.
+The dispensing contract can be drained if the payer wants to abort the contract. A drain pays all remaining funds back to the payer minus the accumulated drip rates for the payees.
 
 Any remaining dust also gets transferred to the payer.
 
@@ -35,20 +35,20 @@ GAS_GWEI=3 ROOT_RPC_URL=http://localhost:8222 PRIV_KEY=0x2bdd21761a483f71054e14f
 
 ### Contract
 
-https://etherscan.io/address/0xEc2CEaF2b34D12f321aB5718B0714a12710D8bFa
+https://etherscan.io/address/0xeC41c0F035Ce9127c506fD726fC22F393b350fE4
 
 ### UI
 
-https://bafybeiaqt2bh4ln2y4ls2n7g43epppqcdiwhonsc4pdgvv7yexguupns7q.ipfs.infura-ipfs.io/
-https://bafybeiaqt2bh4ln2y4ls2n7g43epppqcdiwhonsc4pdgvv7yexguupns7q.ipfs.cf-ipfs.com/
+https://bafybeigtk4cw4ckaknksgkfntvzqlfojt7ba3ce67dszhdhzg3g2yhsz5y.ipfs.infura-ipfs.io/
+https://bafybeigtk4cw4ckaknksgkfntvzqlfojt7ba3ce67dszhdhzg3g2yhsz5y.ipfs.cf-ipfs.com/
 
 ## ropsten
 
 ### Contract
 
-https://ropsten.etherscan.io/address/0x46DCdCC77fd62739e7810272D0dA67Bc63d5dc84
+https://ropsten.etherscan.io/address/0x55973C53DdE65A050BFBb15ADc6a9F19B7A888A6
 
 ### UI
 
-https://bafybeicescjmqchwthkb6ijp5cht7jrxtfrni4ffqrvmj2u6zq6u2haeza.ipfs.infura-ipfs.io/
-https://bafybeicescjmqchwthkb6ijp5cht7jrxtfrni4ffqrvmj2u6zq6u2haeza.ipfs.cf-ipfs.com/
+https://bafybeicb4tijmrvugqwrxnwsknr5k3s64s7juk6hixoczv7nexuya6nzgi.ipfs.infura-ipfs.io/
+https://bafybeicb4tijmrvugqwrxnwsknr5k3s64s7juk6hixoczv7nexuya6nzgi.ipfs.cf-ipfs.com/

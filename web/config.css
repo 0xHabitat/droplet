@@ -74,6 +74,6 @@ button:active,
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(min-content, 42ch)) repeat(1, 12ch);
+  grid-template-columns: repeat(1, minmax(min-content, 42ch)) repeat(1, 16ch);
   overflow: hidden;
 }

@@ -15,9 +15,10 @@
       <div class='container'>
         <div>
           <h1>Dispenser</h1>
-          <form id='basic'>
+          <section>
+            <h3>1. Select the Token you like to pay out</h3>
             <label>
-              <input required=true list='tokenlist' id='token' placeholder='Select Token'>
+              <input required=true list='tokenlist' id='token' placeholder='Choose from the list or paste the token contract address'>
             </label>
 
             <label>
@@ -26,14 +27,25 @@
               <button id='payerAutofill'>Use address from my Wallet</button>
             </label>
 
+            <h3>2. Please select a starting time</h3>
             <label>
-              Contract start time
+              Dispenser start time, in your local time.
+              You can spin up retrospective payouts when you select a date in the past.
               <input required=true id='startTime' placeholder='2020/06/22 14:32'>
             </label>
-            <button id='datetime'>Use current local time</button>
-          </form>
+            <label>
+              Select a drip rate or enter the number of seconds a drip takes.
+              <input required=true list='dripRatelist' id='dripRate' placeholder='Drips once each ...'>
+              <datalist id='dripRatelist'>
+                <option>Hour</option>
+                <option>Day</option>
+                <option>Week</option>
+              </datalist>
+            </label>
+          </section>
 
           <section>
+            <h3>3. Add Payee - Who is receiving the funds?</h3>
             <form id='payee'>
               <label>
                 Add Payee
@@ -41,8 +53,8 @@
               </label>
 
               <label>
-                Rate per hour
-                <input type='number' id='ratePerHour' placeholder='120'>
+                How much tokens does the Payee earn per drip?
+                <input type='number' id='ratePerDrip' placeholder='42.2'>
               </label>
               <button id='add'>Add Payee</button>
             </form>
@@ -51,14 +63,15 @@
           <section>
             <div class='grid'>
               <p>Payee</p>
-              <p>Hourly rate</p>
+              <p>Amount per Drip</p>
             </div>
           </section>
 
           <section>
+            <h3>4. Setup your Dispenser</h3>
             <h2>Looks good?</h2>
             <section id='feedback'></section>
-            <button id='deploy'>Create Contract</button>
+            <button id='deploy'>Create Dispenser</button>
           </section>
         </div>
       </div>

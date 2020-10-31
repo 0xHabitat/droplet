@@ -10,10 +10,10 @@ export const ERC20_ABI = [
 
 export const DISPENSER_ABI = [
   'event NewDispenser(address contractAddress)',
-  'function create(address token, address payer, uint256 startTime, address[] payees, uint256[] ratesPerHour) returns (address addr)',
+  'function create(address token, address payer, uint256 startTime, uint256 dripRateSeconds, address[] payees, uint256[] ratesPerDrip) returns (address addr)',
   'function drain()',
   'function drip()',
-  'function getMetadata() view returns (address token, address payer, uint256 startTime, address[] payees, uint256[] ratesPerHour)',
+  'function getMetadata() view returns (address token, address payer, uint256 startTime, uint256 dripRateSeconds, address[] payees, uint256[] ratesPerDrip)',
   'function lastUpdate() view returns (uint256)',
   'function recoverLostTokens(address lostToken)',
   'function setup()'

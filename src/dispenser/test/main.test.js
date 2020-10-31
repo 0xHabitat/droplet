@@ -6,6 +6,7 @@ describe('Dispenser', () => {
   const startTime = ~~(Date.now() / 1000) - 3597;
   const endTime = startTime + 3602;
   const durationSeconds = BigInt(endTime - startTime);
+  const dripRateSeconds = 3600;
   const ratesPerHour = [BigInt(2 * 10**18), BigInt(4) , BigInt(3)];
   const minAmount = ratesPerHour.reduce((a, b) => b + a);
   const fullAmount = minAmount * (durationSeconds / BigInt(3600));
@@ -27,21 +28,26 @@ describe('Dispenser', () => {
       erc20.address,
       payer.address,
       startTime,
+      dripRateSeconds,
       payees,
       ratesPerHour,
     ];
   });
 
   it('create dispenser with zero rates - should fail', async () => {
-    await assertRevert(factory.create(erc20.address, payer.address, startTime, [alice.address], [0], { gasLimit: 9_000_000 }));
+    await assertRevert(factory.create(erc20.address, payer.address, startTime, dripRateSeconds, [alice.address], [0], { gasLimit: 9_000_000 }));
+  });
+
+  it('create dispenser with zero drip rate - should fail', async () => {
+    await assertRevert(factory.create(erc20.address, payer.address, startTime, 0, [alice.address], [222], { gasLimit: 9_000_000 }));
   });
 
   it('create dispenser with wrong arguments - should fail', async () => {
-    await assertRevert(factory.create(erc20.address, payer.address, startTime, [alice.address], [], { gasLimit: 9_000_000 }));
+    await assertRevert(factory.create(erc20.address, payer.address, startTime, dripRateSeconds, [alice.address], [], { gasLimit: 9_000_000 }));
   });
 
   it('create dispenser with wrong arguments - should fail', async () => {
-    await assertRevert(factory.create(erc20.address, payer.address, startTime, [], [1], { gasLimit: 9_000_000 }));
+    await assertRevert(factory.create(erc20.address, payer.address, startTime, dripRateSeconds, [], [1], { gasLimit: 9_000_000 }));
   });
 
   it('create dispenser', async () => {

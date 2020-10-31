@@ -3,6 +3,12 @@ import { ROOT_CHAIN_ID } from './config.js';
 
 const defaultProvider = ethers.getDefaultProvider(ROOT_CHAIN_ID);
 
+const RATES = {
+  'Hour': 3600,
+  'Day': 3600 * 24,
+  'Week': 3600 * 24 * 7,
+};
+
 async function setupTokenlist () {
   const src = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org';
   const { tokens } = await (await fetch(src)).json();
@@ -36,7 +42,8 @@ async function deploy (evt) {
   const erc20 = await getErc20(tokenAddress);
   const decimals = await erc20.decimals();
   const payees = []
-  const ratesPerHour = [];
+  const dripRate = RATES[config.dripRate] || parseInt(config.dripRate);
+  const ratesPerDrip = [];
   const table = document.querySelector('.grid');
 
   for (const v of table.querySelectorAll('p.payee')) {
@@ -45,7 +52,7 @@ async function deploy (evt) {
 
   for (const v of document.querySelectorAll('p.rate')) {
     const value = ethers.utils.parseUnits(v.textContent, decimals);
-    ratesPerHour.push(value.toString());
+    ratesPerDrip.push(value.toString());
   }
 
   const payer = await defaultProvider.resolveName(config.payer);
@@ -63,26 +70,24 @@ async function deploy (evt) {
     throw new Error('invalid date');
   }
 
-  const args = [tokenAddress, payer, startTime, payees, ratesPerHour];
+  if (!dripRate) {
+    throw new Error('invalid drip rate');
+  }
+
+  const args = [tokenAddress, payer, startTime, dripRate, payees, ratesPerDrip];
   const dispenser = (await getDispenser()).connect(signer);
   const tx = await dispenser.create(...args);
 
-  await displayFeedback('Creating Contract', evt.target, tx);
+  await displayFeedback('Creating Dispenser', evt.target, tx);
 
   const receipt = await tx.wait();
   const contractAddress = receipt.events[0].args[0];
   window.location.href = `/overview/#${contractAddress}`;
 }
 
-async function datetime (evt) {
-  const date = new Date();
-  document.querySelector('input#startTime').value =
-    `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-}
-
 async function addPayee (evt) {
   const payeeInput = document.querySelector('input#payee');
-  const rateInput = document.querySelector('input#ratePerHour');
+  const rateInput = document.querySelector('input#ratePerDrip');
   const a = await defaultProvider.resolveName(payeeInput.value);
   const b = Number(rateInput.value);
 
@@ -91,7 +96,7 @@ async function addPayee (evt) {
   }
 
   if (!b) {
-    throw new Error('invalid hourly rate');
+    throw new Error('invalid drip amount');
   }
 
   const container = document.querySelector('.grid');
@@ -119,9 +124,11 @@ async function payerAutofill (evt) {
 async function render () {
   setupTokenlist();
 
+  const date = new Date();
+  document.querySelector('input#startTime').value =
+    `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
   wrapListener('button#deploy', deploy);
   wrapListener('button#add', addPayee);
-  wrapListener('button#datetime', datetime);
   wrapListener('button#payerAutofill', payerAutofill);
 }
 

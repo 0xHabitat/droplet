@@ -12,24 +12,26 @@ contract Dispenser {
 
   event NewDispenser (address contractAddress);
 
-  /// @notice Creates a new contract.
+  /// @notice Creates a new Dispenser.
   function create (
     address token,
     address payer,
     uint256 startTime,
+    uint256 dripRateSeconds,
     address[] calldata payees,
-    uint256[] calldata ratesPerHour
+    uint256[] calldata ratesPerDrip
   ) external returns (address addr) {
     uint256 len = payees.length;
-    require(len > 0 && len == ratesPerHour.length);
+    require(len > 0 && len == ratesPerDrip.length);
+    require(dripRateSeconds > 0);
 
-    uint256 totalRatePerHour = 0;
+    uint256 totalRate = 0;
     for (uint256 i = 0; i < len; i++) {
-      uint256 tmp = totalRatePerHour + ratesPerHour[i];
+      uint256 tmp = totalRate + ratesPerDrip[i];
       // overflow + zero -check
-      require(tmp > totalRatePerHour);
+      require(tmp > totalRate);
 
-      totalRatePerHour = tmp;
+      totalRate = tmp;
     }
 
     addr = _createSimpleProxy();
@@ -38,15 +40,16 @@ contract Dispenser {
     emit NewDispenser(addr);
   }
 
-  /// @notice Returns the metadata of this contract.
+  /// @notice Returns the metadata of this Dispenser.
   /// Only relevant with contracts created via the function `create()`.
   function getMetadata ()
   public view returns (
     address token,
     address payer,
     uint256 startTime,
+    uint256 dripRateSeconds,
     address[] memory payees,
-    uint256[] memory ratesPerHour
+    uint256[] memory ratesPerDrip
   ) {
     assembly {
       let x := sub(calldatasize(), 32)
@@ -57,17 +60,17 @@ contract Dispenser {
     }
   }
 
-  /// @notice Setup this contract.
+  /// @notice Setup this Dispenser.
   function setup (
   ) external {
     require(lastUpdate == 0);
 
-    (,,uint256 startTime,,) = Dispenser(this).getMetadata();
+    (,,uint256 startTime,,,) = Dispenser(this).getMetadata();
     require(startTime > 0);
     lastUpdate = startTime;
   }
 
-  /// @notice Drips `ratesPerHour` to each payee since the last drip
+  /// @notice Drips `ratesPerDrip` to each payee since the last drip
   /// and then returns any remaining balance to the `payer`.
   function drain (
   ) external {
@@ -75,14 +78,15 @@ contract Dispenser {
       address token,
       address payer,
       uint256 startTime,
+      uint256 dripRateSeconds,
       address[] memory payees,
-      uint256[] memory ratesPerHour
+      uint256[] memory ratesPerDrip
     ) = Dispenser(this).getMetadata();
 
     require(msg.sender == payer);
 
     // drip any accumulated debt first
-    _update(token, payer, startTime, payees, ratesPerHour);
+    _update(token, payer, startTime, dripRateSeconds, payees, ratesPerDrip);
 
     IERC20 tokenContract = IERC20(token);
     uint256 balance = tokenContract.balanceOf(address(this));
@@ -93,7 +97,7 @@ contract Dispenser {
     }
   }
 
-  /// @notice Drips `ratesPerHour` for each `payees` from `token` since the last drip.
+  /// @notice Drips `ratesPerDrip` for each `payees` from `token` since the last drip.
   /// Returns Satisfaction.
   function drip (
   ) external {
@@ -101,11 +105,12 @@ contract Dispenser {
       address token,
       address payer,
       uint256 startTime,
+      uint256 dripRateSeconds,
       address[] memory payees,
-      uint256[] memory ratesPerHour
+      uint256[] memory ratesPerDrip
     ) = Dispenser(this).getMetadata();
 
-    _update(token, payer, startTime, payees, ratesPerHour);
+    _update(token, payer, startTime, dripRateSeconds, payees, ratesPerDrip);
   }
 
   /// @notice Allows to recover `lostToken` other than the intended `token`.
@@ -113,7 +118,7 @@ contract Dispenser {
   function recoverLostTokens (
     address lostToken
   ) external {
-    (address token, , , address[] memory payees,) = Dispenser(this).getMetadata();
+    (address token, , , , address[] memory payees,) = Dispenser(this).getMetadata();
     require(token != lostToken);
 
     IERC20 tokenContract = IERC20(lostToken);
@@ -127,8 +132,9 @@ contract Dispenser {
     address token,
     address payer,
     uint256 startTime,
+    uint256 dripRateSeconds,
     address[] memory payees,
-    uint256[] memory ratesPerHour
+    uint256[] memory ratesPerDrip
   ) internal {
     uint256 lastDrip = lastUpdate;
 
@@ -137,29 +143,29 @@ contract Dispenser {
     }
 
     uint256 len = payees.length;
-    uint256 totalRatePerHour = 0;
+    uint256 totalRate = 0;
     for (uint256 i = 0; i < len; i++) {
-      totalRatePerHour += ratesPerHour[i];
+      totalRate += ratesPerDrip[i];
     }
 
     IERC20 tokenContract = IERC20(token);
     uint256 availableBalance = tokenContract.balanceOf(address(this));
-    uint256 availableHours = availableBalance / totalRatePerHour;
-    uint256 maxHours = (block.timestamp - lastDrip) / 3600;
+    uint256 availableDrips = availableBalance / totalRate;
+    uint256 maxDrips = (block.timestamp - lastDrip) / dripRateSeconds;
 
-    if (availableHours > maxHours) {
+    if (availableDrips > maxDrips) {
       // clamp
-      availableHours = maxHours;
+      availableDrips = maxDrips;
     }
 
-    if (availableHours > 0) {
+    if (availableDrips > 0) {
       // update
-      lastUpdate = lastDrip + (availableHours * 3600);
+      lastUpdate = lastDrip + (availableDrips * dripRateSeconds);
 
       // transfer to payees
       for (uint256 i = 0; i < len; i++) {
-        uint256 rate = ratesPerHour[i];
-        uint256 amount = rate * availableHours;
+        uint256 rate = ratesPerDrip[i];
+        uint256 amount = rate * availableDrips;
 
         availableBalance -= amount;
         require(tokenContract.transfer(payees[i], amount));
@@ -167,7 +173,7 @@ contract Dispenser {
     }
 
     // drip any dust to the payer
-    if (availableBalance > 0 && availableBalance < totalRatePerHour) {
+    if (availableBalance > 0 && availableBalance < totalRate) {
       // dust
       require(tokenContract.transfer(payer, availableBalance));
     }
