@@ -1,0 +1,16 @@
+name: Publish
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: build & publish
+      run: docker build --build-arg=FLY_TOKEN=${{ secrets.FLY_TOKEN }} --build-arg=DOMAIN=${{ secrets.DOMAIN }} -t tmp .
