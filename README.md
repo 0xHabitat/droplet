@@ -45,7 +45,7 @@ Simply choose from a wide range of ERC-20 tokens, incl. **WETH, DAI, WBTC, etc..
 
 * **If you cant find your token, paste the contract address in the form.**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/01select-token.png" alt="01select-token" style="zoom:50%;" />
+![](text-content/how-it-works/assets/01select-token.png)
 
 
 
@@ -58,7 +58,7 @@ You can also just setup the contract and use another payer address to recover fu
 * **Whatever the situation, the Payer/Originator is captured as a 0x address or ENS name.** 
 * **Please make sure to have access to the address and wallet you choose as Payer.**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/02payer-address.png" alt="02payer-address" style="zoom:50%;" />
+![](text-content/how-it-works/assets/02payer-address.png)
 
 
 
@@ -66,7 +66,7 @@ You can also just setup the contract and use another payer address to recover fu
 
 Next step is to decide when the droplet is starting to calculate the first wave of payout funds from the contract to the payees.
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/03starting-time.png" alt="03starting-time" style="zoom:50%;" />
+![](text-content/how-it-works/assets/03starting-time.png)
 
 
 
@@ -80,7 +80,7 @@ You can also design retrospective payouts when you **select a past date**. The c
 
 Once you have a starting date you need to decide how often the droplet is paying out to the payees. You can select from the following payout options: **hourly, daily & weekly**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/04drip-rate.png" alt="04drip-rate" style="zoom:50%;" />
+![](text-content/how-it-works/assets/04drip-rate.png)
 
 
 
@@ -96,7 +96,7 @@ You **can not change the interval** once the contract is setup.
 
 Only **Payees** added by the **Payer** will receive the desired token as a payment.
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/05payee.png" alt="05payee" style="zoom:50%;" />
+![](text-content/how-it-works/assets/05payee.png)
 
 
 
@@ -104,7 +104,7 @@ Only **Payees** added by the **Payer** will receive the desired token as a payme
 
 So it's fairly easy to decide on a daily drip or weekly drip payment in total numbers.
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/06earn.png" alt="06earn" style="zoom:50%;" />
+![](text-content/how-it-works/assets/06earn.png)
 
 
 
@@ -135,7 +135,7 @@ All payees will be paid in the chosen interval, you can only decide on different
 
 The Interface will show you a full list of payees and their respective amount per drip:
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/07payee-list.png" alt="07payee-list" style="zoom:50%;" />
+![](text-content/how-it-works/assets/07payee-list.png)
 
 
 
@@ -143,7 +143,7 @@ The Interface will show you a full list of payees and their respective amount pe
 
 **Once you entered all information, check all details once again and make sure to have ETH in your MetaMask Wallet, then ...**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/08setup.png" alt="08setup" style="zoom:50%;" />
+![](text-content/how-it-works/assets/08setup.png)
 
 
 
@@ -151,7 +151,7 @@ The Interface will show you a full list of payees and their respective amount pe
 
 **You just created your first droplet contract! Just wait for the transaction to confirm :)**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/09tx-hash.png" alt="09tx-hash" style="zoom:50%;" />
+![](text-content/how-it-works/assets/09tx-hash.png)
 
 
 
@@ -161,7 +161,7 @@ Everyone can fund the droplet by simply sending funds to the contract address. T
 
 **Here is another DAI Example:**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/10overview.png" alt="10overview" style="zoom:50%;" />
+![](text-content/how-it-works/assets/10overview.png)
 
 
 
@@ -173,7 +173,7 @@ Everyone can fund the droplet by simply sending funds to the contract address. T
 
 + **Only Payers can add Payees to the contract before the setup.**
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/11drip-funds.png" alt="11drip-funds" style="zoom:50%;" />
+![](text-content/how-it-works/assets/11drip-funds.png)
 
 
 
@@ -187,7 +187,7 @@ Everyone can fund the droplet by simply sending funds to the contract address. T
 
 * That includes all funds within the contract, so this feature can also be used for **Recovery Purposes**.
 
-<img src="/Users/Vic/PROJECTS/dispenser/text-content/how-it-works/assets/12danger-zone.png" alt="12danger-zone" style="zoom:50%;" />
+![](text-content/how-it-works/assets/12danger-zone.png)
 
 
 
