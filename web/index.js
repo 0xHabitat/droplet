@@ -78,7 +78,7 @@ async function deploy (evt) {
   const dispenser = (await getDispenser()).connect(signer);
   const tx = await dispenser.create(...args);
 
-  await displayFeedback('Creating Dispenser', evt.target, tx);
+  await displayFeedback('Creating Droplet', evt.target, tx);
 
   const receipt = await tx.wait();
   const contractAddress = receipt.events[0].args[0];
