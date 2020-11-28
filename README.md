@@ -225,8 +225,8 @@ https://etherscan.io/address/0xeC41c0F035Ce9127c506fD726fC22F393b350fE4
 
 #### UI
 
-https://bafybeihpp4a2yw2bbtkyzbjevubj2tcld4gojxdxigukw2n2tqcigwbeoi.ipfs.infura-ipfs.io/
-https://bafybeihpp4a2yw2bbtkyzbjevubj2tcld4gojxdxigukw2n2tqcigwbeoi.ipfs.cf-ipfs.com/
+https://bafybeihib7iidmo3okkjayoltvlav6gz7rohwwvbtzjnpzbld3ussp7une.ipfs.infura-ipfs.io/
+https://bafybeihib7iidmo3okkjayoltvlav6gz7rohwwvbtzjnpzbld3ussp7une.ipfs.cf-ipfs.com/
 
 
 
