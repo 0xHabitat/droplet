@@ -130,17 +130,15 @@ input {
   }
 }
 
-.wrapperContent {
+.contentBox {
   flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 1;
-  width: auto;
+  width: max-content;
   max-width: 90vw;
-  margin: 1rem auto -2rem auto;
+  margin: 1rem auto;
   padding: 1rem;
-  padding-bottom: 2rem;
   border-radius: 2vw;
-  overflow: scroll !important;
   background-color: var(--color-bg);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -204,4 +202,11 @@ input, button, .button {
 .danger {
   color: var(--color-text);
   background-color: var(--color-error);
+}
+
+.content {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
