@@ -140,4 +140,4 @@ Everyone can fund the droplet by simply sending funds to the contract address. T
 
 ## Open Questions? Feedback?
 
-Please contact us via contact on droplet.deora.earth
+Please contact us via social platforms listed on https://0xhabitat.org
